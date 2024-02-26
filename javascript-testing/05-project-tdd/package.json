@@ -1,0 +1,21 @@
+{
+  "name": "05-project-tdd",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "seed": "node seed",
+    "start": "node api.js",
+    "test": "npx mocha -w --parallel test/**/*.test.js",
+    "test:coverage": "npx nyc npx mocha --parallel test/**/*.test.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@faker-js/faker": "^8.4.1",
+    "chai": "^4.4.1",
+    "mocha": "^8.4.0",
+    "nyc": "^15.1.0",
+    "sinon": "^9.2.4",
+    "supertest": "^6.3.4"
+  }
+}

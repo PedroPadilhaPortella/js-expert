@@ -1,0 +1,23 @@
+[
+    {
+        "id": "8081f9e8-a22b-4c32-b331-8a1326f4d514",
+        "name": "Passenger Van",
+        "releaseYear": 2024,
+        "avaliable": true,
+        "gasAvaliable": true
+    },
+    {
+        "id": "70d7733c-8409-4b63-8536-6e410e054223",
+        "name": "Sedan",
+        "releaseYear": 2023,
+        "avaliable": true,
+        "gasAvaliable": true
+    },
+    {
+        "id": "52c9582a-ab7e-49dc-802f-a5cc6d668808",
+        "name": "Passenger Van",
+        "releaseYear": 2023,
+        "avaliable": true,
+        "gasAvaliable": true
+    }
+]
