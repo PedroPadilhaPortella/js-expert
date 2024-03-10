@@ -1,18 +1,20 @@
 const { expect } = require("chai");
 const { describe, it } = require("mocha");
 
-const mock = require("./mocks/valid");
 const TextProcessorFluentAPI = require("../src/textProcessorFluentAPI");
+const TextProcessorDataBuilder = require("./models/textProcessorDataBuilder");
 
 describe(TextProcessorFluentAPI.name, () => {
 
   it("should build", () => {
-    const result = new TextProcessorFluentAPI(mock).build();
-    expect(result).to.be.deep.equal(mock);
+    const content = TextProcessorDataBuilder.asTextProcessor().build();
+    const result = new TextProcessorFluentAPI(content).build();
+    expect(result).to.be.deep.equal(content);
   });
 
   it("should extractPeopleData", () => {
-    const result = new TextProcessorFluentAPI(mock)
+    const content = TextProcessorDataBuilder.asTextProcessor().build();
+    const result = new TextProcessorFluentAPI(content)
       .extractPeopleData()
       .build();
 
@@ -31,13 +33,7 @@ describe(TextProcessorFluentAPI.name, () => {
   });
 
   it("should divideTextInColumns", () => {
-    const content = [
-      [
-        "Xuxa da Silva, brasileira, casada, CPF 235.743.420-12, residente e ",
-        "domiciliada a Rua dos bobos, zero, bairro Alphaville, São Paulo. ",
-      ].join("\n")
-    ];
-
+    const content = TextProcessorDataBuilder.asTextProcessor().extractedPeopleData().build();
     const result = new TextProcessorFluentAPI(content)
       .divideTextInColumns()
       .build();
@@ -59,18 +55,7 @@ describe(TextProcessorFluentAPI.name, () => {
   });
 
   it("should removeEmptyCharacters", () => {
-    const content = [
-      [
-        "Xuxa da Silva",
-        " brasileira",
-        " casada",
-        " CPF 235.743.420-12",
-        " residente e \ndomiciliada a Rua dos bobos",
-        " zero",
-        " bairro Alphaville",
-        " São Paulo. ",
-      ]
-    ];
+    const content = TextProcessorDataBuilder.asTextProcessor().dividedTextInColumns().build();
 
     const result = new TextProcessorFluentAPI(content)
       .removeEmptyCharacters()
@@ -93,18 +78,7 @@ describe(TextProcessorFluentAPI.name, () => {
   });
 
   it('should map to Person', () => {
-    const content = [
-      [
-        "Xuxa da Silva",
-        "brasileira",
-        "casada",
-        "CPF 235.743.420-12",
-        "residente e domiciliada a Rua dos bobos",
-        "zero",
-        "bairro Alphaville",
-        "São Paulo.",
-      ]
-    ];
+    const content = TextProcessorDataBuilder.asTextProcessor().removedEmptyCharacters().build();
 
     const result = new TextProcessorFluentAPI(content)
       .mapToPerson()
