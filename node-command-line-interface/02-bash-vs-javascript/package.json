@@ -1,0 +1,16 @@
+{
+  "name": "02-bash-vs-javascript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "zx docker.mjs"
+  },
+  "keywords": [],
+  "author": "pedropadilhaportella",
+  "license": "ISC",
+  "dependencies": {
+    "safe-regex": "^2.1.1",
+    "zx": "^7.2.3"
+  }
+}

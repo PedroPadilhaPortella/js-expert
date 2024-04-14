@@ -1,0 +1,10 @@
+{
+  "name": "@pedropadilhaportella/codegen-mock",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "keywords": [],
+  "author": "pedropadilhaportella",
+  "license": "ISC"
+}
